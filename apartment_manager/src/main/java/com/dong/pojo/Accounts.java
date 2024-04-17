@@ -66,7 +66,6 @@ public class Accounts implements Serializable {
     private String avatar;
     @OneToMany(mappedBy = "accountsId")
     @JsonIgnore
-
     private Collection<Customer> customerCollection;
 
     public Accounts() {

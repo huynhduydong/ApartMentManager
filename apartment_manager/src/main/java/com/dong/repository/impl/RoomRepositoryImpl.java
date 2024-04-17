@@ -1,8 +1,10 @@
 package com.dong.repository.impl;
 
+import com.dong.pojo.Customer;
 import com.dong.pojo.Room;
 import com.dong.repository.RoomRepository;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Query;
 
 import org.hibernate.HibernateException;
@@ -40,6 +42,19 @@ public class RoomRepositoryImpl implements RoomRepository {
             } else {
                 s.update(r);
             }
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteRoom(int id) {
+        Session session = Objects.requireNonNull(this.factory.getObject()).getCurrentSession();
+        Room c = this.getRoomById(id);
+        try {
+            session.delete(c);
             return true;
         } catch (HibernateException ex) {
             ex.printStackTrace();

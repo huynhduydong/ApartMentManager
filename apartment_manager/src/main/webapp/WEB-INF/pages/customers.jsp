@@ -3,8 +3,9 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:url value="/customers" var="action" />
 <%--@elvariable id="customer" type=""--%>
-<form:form method="post" action="${action}" modelAttribute="customer" enctype="multipart/form-data">
+<form:form method="post" action="${action}" modelAttribute="customer"  enctype="multipart/form-data">
     <form:errors path="*" element="div" cssClass="alert alert-danger" />
+    <form:hidden path="id" />
     <div class="form-floating mb-3 mt-3">
         <form:input type="text" class="form-control"
                     path="name" id="name" placeholder="Tên khách hàng" />
@@ -35,8 +36,79 @@
         <label for="birthday">Ngày sinh</label>
         <form:errors path="birthday" element="div" cssClass="text-danger" />
     </div>
+    <div class="mb-3 mt-3">
+        <label >Giới tính</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="male" name="gender" value="male" checked>
+            <label class="form-check-label" for="male">Nam</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="female" name="gender" value="female">
+            <label class="form-check-label" for="female">Nữ</label>
+        </div>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <form:select class="form-select" id="room" name="room" path="roomId">
+            <c:forEach items="${room}" var="r">
+                <c:choose>
+                    <c:when test="${r.id == customer.roomId.id}">
+                        <option value="${r.id}" selected>${r.code}</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="${r.id}">${r.code}</option>
+                    </c:otherwise>
+                </c:choose>
+
+            </c:forEach>
+        </form:select>
+        <label for="room" class="form-label">Phòng:</label>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Ten dich vu</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach items="${service}" var="s">
+            <tr>
+                <td>${s.name}</td>
+                <td>${s.cost}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+
+    <div class="form-floating mb-3 mt-3">
+        <form:hidden path="accountsId.id" />
+        <form:input type="text" class="form-control"
+                    path="accountsId.username" id="accountsId.username" placeholder="username" />
+        <label for="name">username</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <form:input type="text" class="form-control"
+                    path="accountsId.password" id="accountsId.password"  placeholder="password" />
+        <label for="name">password khách hàng</label>
+    </div>
+
+<%--    <div class="form-floating mb-3 mt-3">--%>
+<%--        <form:input type="text" class="form-control"--%>
+<%--                    path="merchandiseCabinetId.id" id="merchandiseCabinetId.id"  placeholder="id" />--%>
+<%--        <label for="id"> id </label>--%>
+<%--    </div>--%>
+<%--    <div class="form-floating mb-3 mt-3">--%>
+<%--        <form:input type="text" class="form-control"--%>
+<%--                    path="merchandiseCabinetId.code" id="merchandiseCabinetId.code" placeholder="code" />--%>
+<%--        <label for="name">code </label>--%>
+<%--    </div>--%>
 
 
+
+
+<%--    </table>--%>
     <div class="form-floating mb-3 mt-3">
         <button class="btn btn-info" type="submit">
             <c:choose>
@@ -45,5 +117,4 @@
             </c:choose>
         </button>
     </div>
-
 </form:form>

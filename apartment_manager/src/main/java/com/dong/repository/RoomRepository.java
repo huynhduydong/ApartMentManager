@@ -9,4 +9,6 @@ public interface RoomRepository {
     List<Room> getRoom();
     Room getRoomById(int id);
     boolean addOrUpdateRoom(Room r );
+    boolean deleteRoom(int id);
+
 }

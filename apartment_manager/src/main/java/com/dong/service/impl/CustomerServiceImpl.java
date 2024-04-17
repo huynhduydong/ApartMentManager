@@ -31,4 +31,9 @@ public class CustomerServiceImpl implements CustomerService {
     public boolean deleteCustomer(int id) {
         return this.customerRepo.deleteCustomer(id);
     }
+
+    @Override
+    public List<Customer> getCustomer() {
+        return this.customerRepo.getCustomer();
+    }
 }

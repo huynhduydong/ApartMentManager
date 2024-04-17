@@ -23,6 +23,39 @@
         <put-attribute name="content"
                        value="/WEB-INF/pages/customers.jsp" />
     </definition>
-
-
+    <definition name="service" extends="baseLayout">
+        <put-attribute name="title" value="Quản li dich vu" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/service.jsp" />
+    </definition>
+    <definition name="addservice" extends="baseLayout">
+        <put-attribute name="title" value="Quản li dich vu" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/addservice.jsp" />
+    </definition>
+    <definition name="room" extends="baseLayout">
+        <put-attribute name="title" value="Quản lí phòng" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/room.jsp" />
+    </definition>
+    <definition name="addroom" extends="baseLayout">
+        <put-attribute name="addroom" value="Quản lí phòng" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/addroom.jsp" />
+    </definition>
+    <definition name="account" extends="baseLayout">
+        <put-attribute name="title" value="Quản lí tài khoản" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/account.jsp" />
+    </definition>
+    <definition name="accounts" extends="baseLayout">
+        <put-attribute name="addroom" value="Quản lí tài khoản" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/accounts.jsp" />
+    </definition>
+    <definition name="detailreceipt" extends="baseLayout">
+        <put-attribute name="detailreceipt" value="Quản lí hoa don" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/detailreceipt.jsp" />
+    </definition>
 </tiles-definitions>

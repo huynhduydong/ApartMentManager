@@ -10,4 +10,5 @@ public interface CustomerService {
     boolean addOrUpdateCustomer(Customer c);
     Customer getCustomerById(int id);
     boolean deleteCustomer(int id);
+    public List<Customer> getCustomer();
 }

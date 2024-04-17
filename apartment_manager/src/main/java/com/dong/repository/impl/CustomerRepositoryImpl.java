@@ -1,5 +1,6 @@
 package com.dong.repository.impl;
 
+import com.dong.pojo.Accounts;
 import com.dong.pojo.Customer;
 import com.dong.repository.CustomerRepository;
 import org.hibernate.HibernateException;
@@ -31,6 +32,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         CriteriaQuery<Customer> q = b.createQuery(Customer.class);
         Root root = q.from(Customer.class);
         q.select(root);
+
         if (params != null && !params.isEmpty()) {
             List<Predicate> predicates = new ArrayList<>();
 
@@ -48,6 +50,18 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public Long countCustomer() {
         return null;
+    }
+
+    @Override
+    public List<Customer> getCustomer() {
+
+        Session session = this.factory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
+        Root rC= q.from(Customer.class);
+        q.multiselect(rC.get("id"), rC.get("name"));
+        Query query = session.createQuery(q);
+        return query.getResultList();
     }
 
     @Override

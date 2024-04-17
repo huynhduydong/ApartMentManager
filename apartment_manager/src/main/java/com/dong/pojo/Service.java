@@ -33,10 +33,10 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "service")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Service.findAll", query = "SELECT s FROM Service s"),
-    @NamedQuery(name = "Service.findById", query = "SELECT s FROM Service s WHERE s.id = :id"),
-    @NamedQuery(name = "Service.findByName", query = "SELECT s FROM Service s WHERE s.name = :name"),
-    @NamedQuery(name = "Service.findByCost", query = "SELECT s FROM Service s WHERE s.cost = :cost")})
+        @NamedQuery(name = "Service.findAll", query = "SELECT s FROM Service s"),
+        @NamedQuery(name = "Service.findById", query = "SELECT s FROM Service s WHERE s.id = :id"),
+        @NamedQuery(name = "Service.findByName", query = "SELECT s FROM Service s WHERE s.name = :name"),
+        @NamedQuery(name = "Service.findByCost", query = "SELECT s FROM Service s WHERE s.cost = :cost")})
 public class Service implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,12 +56,8 @@ public class Service implements Serializable {
     @Column(name = "cost")
     private BigDecimal cost;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "service")
-    @JsonIgnore
-
     private Collection<DetailReceipt> detailReceiptCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "service")
-    @JsonIgnore
-
     private Collection<UseService> useServiceCollection;
 
     public Service() {
@@ -143,5 +139,5 @@ public class Service implements Serializable {
     public String toString() {
         return "com.dong.pojo.Service[ id=" + id + " ]";
     }
-    
+
 }

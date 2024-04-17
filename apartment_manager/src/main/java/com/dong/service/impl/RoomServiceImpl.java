@@ -27,4 +27,9 @@ public class RoomServiceImpl implements RoomService {
     public boolean addOrUpdateRoom(Room r) {
         return this.roomReps.addOrUpdateRoom(r);
     }
+
+    @Override
+    public boolean deleteRoom(int id) {
+        return this.roomReps.deleteRoom(id);
+    }
 }

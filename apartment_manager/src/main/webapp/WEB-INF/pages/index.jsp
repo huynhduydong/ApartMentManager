@@ -31,6 +31,7 @@
                 <td>${c.name}</td>
                 <td>${c.address}</td>
                 <td>${c.email}</td>
+                <td></td>
                 <td>
                     <c:url value="/api/customers/${c.id}" var="apiDel" />
                     <a href="<c:url value="/customers/${c.id}" />" class="btn btn-success">Cập nhật</a>
@@ -41,3 +42,4 @@
         </tbody>
     </table>
 </section>
+<script src="<c:url value="/js/main.js" />"></script>

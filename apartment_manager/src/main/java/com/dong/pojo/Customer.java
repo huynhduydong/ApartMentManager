@@ -80,32 +80,32 @@ public class Customer implements Serializable {
     private String status;
     @OneToMany(mappedBy = "customerId")
     @JsonIgnore
-
     private Collection<Feedback> feedbackCollection;
     @OneToMany(mappedBy = "customerId")
     @JsonIgnore
-
     private Collection<RelativeParkCard> relativeParkCardCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
     @JsonIgnore
-
     private Collection<Receipt> receiptCollection;
     @OneToMany(mappedBy = "customerId")
     @JsonIgnore
-
     private Collection<MerchandiseCabinetDetail> merchandiseCabinetDetailCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     @JsonIgnore
-
     private Collection<UseService> useServiceCollection;
     @JoinColumn(name = "accounts_id", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JsonIgnore
+
     private Accounts accountsId;
     @JoinColumn(name = "merchandise_cabinet_id", referencedColumnName = "id")
     @ManyToOne
+    @JsonIgnore
+
     private MerchandiseCabinet merchandiseCabinetId;
     @JoinColumn(name = "room_id", referencedColumnName = "id")
     @ManyToOne
+    @JsonIgnore
     private Room roomId;
 
     public Customer() {

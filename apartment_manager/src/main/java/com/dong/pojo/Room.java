@@ -65,7 +65,6 @@ public class Room implements Serializable {
     private Collection<Receipt> receiptCollection;
     @OneToMany(mappedBy = "roomId")
     @JsonIgnore
-
     private Collection<Customer> customerCollection;
 
     public Room() {

@@ -17,28 +17,28 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Trang chủ </a>
+                <a class="nav-link" href="<c:url value="/" />">Trang chủ </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Quản lý khách hàng</a>
+                <a class="nav-link" href="<c:url value="/customers" />">Quản lý khách hàng</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Quản lý tài khoản</a>
+                <a class="nav-link" href="<c:url value="/account" />">Quản lý tài khoản</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Quản lý tủ đồ</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Quản lý dịch vụ</a>
+                <a class="nav-link" href="<c:url value="/service" />">Quản lý dịch vụ</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="#">Tạo khảo sát</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Đăng nhập</a>
+                <a class="nav-link" href="<c:url value="/room" />">Quản lý phòng</a>
             </li>
         </ul>
     </div>
